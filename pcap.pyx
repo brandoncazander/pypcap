@@ -19,8 +19,10 @@ __version__ = '1.1'
 import sys
 import struct
 
-cdef extern from "Python.h":
+cdef extern from "PyHelper.h":
     object PyBuffer_FromMemory(char *s, int len)
+
+cdef extern from "Python.h":
     int    PyObject_AsCharBuffer(object obj, char **buffer, int *buffer_len)
     int    PyGILState_Ensure()
     void   PyGILState_Release(int gil)
